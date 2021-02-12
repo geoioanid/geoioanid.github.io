@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="scoreDisplay">
+        <p>Number go brrrr</p>
+        <p id="score">0</p>
+    </div>
+    <div class="buttons">
+        <button id="mainButton">Click</button>
+        <button id="secondButton" style="visibility: hidden;">10 x Click</button>
+    </div>
+    <!--    <script src="logic.js"></script> -->
+    <script>
+        let mainButton = document.getElementById("mainButton");
+        let secondButton = document.getElementById("secondButton");
+        let displayScore = document.getElementById("score");
+        let score = 0
+
+        mainButton.addEventListener("click", () =>{
+            score = score + 1
+            if (score === 10) {
+                secondButton.style = "visibility=visible;"
+            }
+            updateScore(displayScore, score)
+        });
+
+        secondButton.addEventListener("click", () =>{
+            score = score + 10
+            updateScore(displayScore, score)
+        });
+
+
+
+        function updateScore(element, value) {
+            element.innerHTML = value
+        }
+    </script>
+</body>
+</html>
